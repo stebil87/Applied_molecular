@@ -1,7 +1,8 @@
 import matplotlib.pyplot as plt
 from sklearn.manifold import TSNE
-import matplotlib.pyplot as plt
 from sklearn.metrics import roc_curve, auc
+import pandas as pd
+import matplotlib.pyplot as plt
 
 
 def plot_tsne(dfs, titles):
@@ -27,7 +28,6 @@ def plot_tsne(dfs, titles):
     plt.show()
     
     
-
 def plot_roc_curves(trained_models, test_dataset):
     fig, axes = plt.subplots(nrows=3, ncols=1, figsize=(10, 18)) 
     fig.suptitle('Receiver Operating Characteristic (ROC) Curves for Tested Models')
@@ -58,4 +58,16 @@ def plot_roc_curves(trained_models, test_dataset):
 
     plt.tight_layout(rect=[0, 0.03, 1, 0.95]) 
     plt.show()
+    
+
+def plot_binary_distribution(df, column_name):
+    value_counts = df[column_name].value_counts()
+    value_counts.plot(kind='bar', color=['blue', 'orange'])
+    plt.title('Distribution of ' + column_name + ' Label')
+    plt.xlabel(column_name)
+    plt.ylabel('Count')
+    plt.xticks(rotation=0)
+    plt.show()
+    return value_counts
+
 
