@@ -1,3 +1,7 @@
+from sklearn.feature_selection import RFECV
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import StratifiedKFold
+
 def apply_RFECV_and_add(df):
     X = df.drop(['BBB', 'smiles'], axis=1)
     y = df['BBB']
