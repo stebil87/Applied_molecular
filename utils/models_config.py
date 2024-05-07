@@ -6,10 +6,11 @@ from sklearn.naive_bayes import GaussianNB
 
 
 models = {
-    'Logistic Regression': LogisticRegression(),
-    'Decision Tree': DecisionTreeClassifier(),
-    'Random Forest': RandomForestClassifier(),
-    'Gradient Boosting': GradientBoostingClassifier(),
-    'k-Nearest Neighbors': KNeighborsClassifier(),
-    'Naive Bayes': GaussianNB()
+    'Logistic Regression': LogisticRegression(class_weight='balanced'),
+    'Decision Tree': DecisionTreeClassifier(class_weight='balanced'),
+    'Random Forest': RandomForestClassifier(class_weight='balanced'),
+    'Gradient Boosting': GradientBoostingClassifier(subsample=0.8), 
+    'k-Nearest Neighbors': KNeighborsClassifier(weights='distance'),
+    'Naive Bayes': GaussianNB()  
 }
+
